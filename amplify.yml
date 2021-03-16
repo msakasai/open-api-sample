@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm i -g npm
+        - npm i -g redoc-cli
+    build:
+      commands:
+        - redoc-cli bundle swagger.yaml -o index.html
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths: []
